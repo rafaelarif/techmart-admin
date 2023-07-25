@@ -4,6 +4,7 @@ import {useRouter} from "next/router";
 import CurrencyInput from 'react-currency-input-field';
 import Spinner from "./Spinner";
 import {ReactSortable} from "react-sortablejs";
+import Image from 'next/image';
 
 export default function ProductForm({
     _id,
@@ -144,7 +145,7 @@ export default function ProductForm({
                 <ReactSortable list={images} setList={updateImagesOrder} className="flex flex-wrap gap-1">
                     {!!images?.length && images.map((link, index) => (
                         <div key={link} className="h-24 relative bg-white p-4 shadow-sm rounded-sm border border-gray-200">
-                            <img src={link} alt="" className="rounded-lg"></img>
+                            <Image src={link} alt="" className="rounded-lg"/>
                             <button
                                 onClick={() => deleteImage(index)}
                                 className="absolute right-0 top-0 bg-red-500 text-white w-4 h-4 m-1 rounded-full">

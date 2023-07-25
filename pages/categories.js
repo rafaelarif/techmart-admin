@@ -114,7 +114,7 @@ function Categories({swal}) {
                     <select onChange={ev => setParentCategory(ev.target.value)} value={parentCategory}>
                         <option value="">No Parent Category</option>
                         {categories.length > 0 && categories.map((category, index) => (
-                            <option key={index} value={category._id}>{category.name}</option>
+                            <option key={category._id} value={category._id}>{category.name}</option>
                         ))}
                     </select>
                 </div>
@@ -127,7 +127,7 @@ function Categories({swal}) {
                         Add New Property
                     </button>
                     {properties.length > 0 && properties.map((property,index) => (
-                        <div className="flex gap-1 mb-2">
+                        <div className="flex gap-1 mb-2" key={index}>
                             <input
                                 type="text"
                                 className="mb-0"

@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Head from "next/head";
 
 export default function OrdersPage() {
     const [orders, setOrders] = useState([]);
@@ -11,6 +12,10 @@ export default function OrdersPage() {
     }, []);
     return (
         <Layout>
+            <Head>
+                <title>Orders - TechMart</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <h1>Orders</h1>
             <table className="basic">
                 <thead>

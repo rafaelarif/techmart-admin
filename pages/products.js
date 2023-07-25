@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link"
 import {useEffect, useState} from "react"
 import swal from "sweetalert2";
+import Head from "next/head";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -34,6 +35,10 @@ export default function Products() {
 
     return (
         <Layout>
+            <Head>
+                <title>Products - TechMart</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <h1>Products</h1>
             <Link className="btn-primary" href={'/products/new'}>Add New Product</Link>
             <table className="basic mt-5">

@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import { withSwal } from "react-sweetalert2";
+import Head from "next/head";
 
 function Categories({swal}) {
     const [editedCategory, setEditedCategory] = useState(null);
@@ -99,6 +100,10 @@ function Categories({swal}) {
     }
     return (
         <Layout>
+            <Head>
+                <title>Categories - TechMart</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <h1>Categories</h1>
             <label>{editedCategory
                 ? `Edit Category ${editedCategory.name}`

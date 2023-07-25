@@ -112,13 +112,13 @@ export default function ProductForm({
             <select value={category} onChange={ev => setCategory(ev.target.value)}>
                 <option value=""></option>
                 {categories.length > 0 && categories.map(c => (
-                    <option value={c._id}>{c.name}</option>
+                    <option key={c._id} value={c._id}>{c.name}</option>
                 ))}
             </select>
-            {propertiesToFill.length > 0 && propertiesToFill.map(p => {
+            {propertiesToFill.length > 0 && propertiesToFill.map((p, index) => {
                 if (p.name) {
                     return (
-                        <div key={p.name} className="">
+                        <div key={index} className="">
                             <label>{p.name[0].toUpperCase() + p.name.substring(1)}</label>
                             <div>
                                 <select

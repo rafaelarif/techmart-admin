@@ -60,8 +60,7 @@
 }
 
 .card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.5rem;
 }
 
 .card p {
@@ -104,9 +103,51 @@
   transform: translateZ(0);
 }
 
-.logo {
+.logo,
+.thirteen {
   position: relative;
 }
+
+.thirteen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  padding: 25px 10px;
+  margin-left: 16px;
+  transform: translateZ(0);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0px 2px 8px -1px #0000001a;
+}
+
+.thirteen::before,
+.thirteen::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+/* Conic Gradient Animation */
+.thirteen::before {
+  animation: 6s rotate linear infinite;
+  width: 200%;
+  height: 200%;
+  background: var(--tile-border);
+}
+
+/* Inner Square */
+.thirteen::after {
+  inset: 0;
+  padding: 1px;
+  border-radius: var(--border-radius);
+  background: linear-gradient(to bottom right,
+      rgba(var(--tile-start-rgb), 1),
+      rgba(var(--tile-end-rgb), 1));
+  background-clip: content-box;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -120,6 +161,10 @@
 }
 
 @media (prefers-reduced-motion) {
+  .thirteen::before {
+    animation: none;
+  }
+
   .card:hover span {
     transform: none;
   }
@@ -143,7 +188,8 @@
   }
 
   .card h2 {
-    margin-bottom: 0.5rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
   }
 
   .center {
@@ -178,11 +224,9 @@
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
+    background: linear-gradient(to bottom,
+        rgba(var(--background-start-rgb), 1),
+        rgba(var(--callout-rgb), 0.5));
     background-clip: padding-box;
     backdrop-filter: blur(24px);
   }
@@ -193,11 +237,9 @@
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgb(var(--background-end-rgb)) 40%);
     z-index: 1;
   }
 }
@@ -214,7 +256,8 @@
     filter: invert(1);
   }
 
-  .logo {
+  .logo,
+  .thirteen img {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }
 }
@@ -223,6 +266,7 @@
   from {
     transform: rotate(360deg);
   }
+
   to {
     transform: rotate(0deg);
   }
